@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.faon.bean.Goods" table="goods" catalog="shop">
+		<id name="goodsId" type="java.lang.Integer">
+			<column name="goodsId"></column>
+			<generator class="increment"></generator>
+		</id>
+		<property name="gimg" type="java.lang.String">
+			<column name="gimg" length="500" not-null="true"></column>
+		</property>
+		<property name="gname" type="java.lang.String">
+			<column name="gname" length="500" not-null="true"></column>
+		</property>
+		<property name="inventory" type="java.lang.Integer">
+			<column name="inventory" ></column>
+		</property>
+		<property name="offer" type="java.lang.Integer">
+			<column name="offer" ></column>
+		</property>
+		<property name="price" type="java.lang.Double">
+			<column name="price" ></column>
+		</property>
+		<property name="shelf" type="java.lang.Integer">
+			<column name="shelf" ></column>
+		</property>
+		<property name="is_del" type="java.lang.Integer">
+			<column name="is_del"  default="0" ></column>
+		</property>
+		
+		
+		<many-to-one name="bId"  class="com.faon.bean.Brand" column="bId"  unique="true" cascade="all"></many-to-one>
+		<many-to-one name="cId"  class="com.faon.bean.Class" column="cId"  unique="true" cascade="all"></many-to-one>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.faon.bean.Brand" table="brand" catalog="shop">
+		<id name="brandId" type="java.lang.Integer">
+			<column name="brandId"></column>
+			<generator class="increment"></generator>
+		</id>
+		<property name="bregdate" type="java.sql.Date">
+			<column name="bregdate" ></column>
+		</property>
+		<property name="bname" type="java.lang.String">
+			<column name="bname" length="500" not-null="true"></column>
+		</property>
+		<property name="is_del" type="java.lang.Integer">
+			<column name="is_del"  default="0" ></column>
+		</property>
+		<one-to-one name="goods" class="com.faon.bean.Goods" property-ref="bId"></one-to-one>
+		
+	
+	</class>
+</hibernate-mapping>

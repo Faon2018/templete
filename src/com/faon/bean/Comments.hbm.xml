@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.faon.bean.Comments" table="comments" catalog="shop">
+		<id name="commentsId" type="java.lang.Integer">
+			<column name="commentsId"></column>
+			<generator class="increment"></generator>
+		</id>
+		<property name="content" type="java.lang.String">
+			<column name="content" length="500" not-null="true"></column>
+		</property>
+		<property name="commentDate" type="java.sql.Date">
+			<column name="commentDate" ></column>
+		</property>
+		<property name="is_del" type="java.lang.Integer">
+			<column name="is_del"  default="0" ></column>
+		</property>
+		<many-to-one name="uId"  class="com.faon.bean.User" column="uId"    cascade="all"></many-to-one>
+		<many-to-one name="gId"  class="com.faon.bean.Goods" column="gId"    cascade="all"></many-to-one>
+	</class>
+</hibernate-mapping>

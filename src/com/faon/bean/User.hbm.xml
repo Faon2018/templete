@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.faon.bean.User" table="user" catalog="shop">
+		<id name="userId" type="java.lang.Integer">
+			<column name="userId"></column>
+			<generator class="increment"></generator>
+		</id>
+		<property name="uname" type="java.lang.String">
+			<column name="uname" length="20" not-null="true"></column>
+		</property>
+		<property name="pwd" type="java.lang.String">
+			<column name="pwd" length="20" not-null="true"></column>
+		</property>
+		<property name="email" type="java.lang.String">
+			<column name="email" length="50" not-null="false"></column>
+		</property>
+		<property name="sex" type="java.lang.String" >
+			<!-- 设置字符串默认值时注意 带上'' 如 'a'、 '男' -->
+			<column name="sex" length="3"  default="'男'" ></column>
+		</property>
+		<property name="regDate" type="java.sql.Date">
+			<column name="regDate" ></column>
+		</property>
+		<property name="is_del" type="java.lang.Integer">
+			<column name="is_del"  default="0" ></column>
+		</property>
+	
+	</class>
+</hibernate-mapping>

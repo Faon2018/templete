@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.faon.bean.Advert" table="advert" catalog="shop">
+		<id name="advertId" type="java.lang.Integer">
+			<column name="advertId"></column>
+			<generator class="increment"></generator>
+		</id>
+		<property name="url" type="java.lang.String">
+			<column name="url" length="500" not-null="true"></column>
+		</property>
+		<property name="launchDate" type="java.sql.Date">
+			<column name="launchDate" ></column>
+		</property>
+		<property name="is_del" type="java.lang.Integer">
+			<column name="is_del"  default="0" ></column>
+		</property>
+		<many-to-one name="posId"  class="com.faon.bean.Postion" column="posId"  unique="true" cascade="all"></many-to-one>
+	
+	</class>
+</hibernate-mapping>
